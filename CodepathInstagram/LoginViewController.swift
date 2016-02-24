@@ -27,14 +27,25 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
             if success {
                 print("Yay, account created!")
+                self.performSegueWithIdentifier("loginSegue", sender: self)
             } else {
                 print(error?.localizedDescription)
+                if error?.code == 202 {
+                    print("username already taken")
+                }
             }
         }
         
     }
     
     @IBAction func onSignIn(sender: AnyObject) {
+        
+        PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!, block: { (user: PFUser?, error: NSError?) in
+            if let user = user {
+                print("\(user) : You are logged in")
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+        })
         
     }
     override func didReceiveMemoryWarning() {
