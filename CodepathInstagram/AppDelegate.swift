@@ -13,6 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil )
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -30,6 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://codepath-instagram-sw.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.currentUser() != nil {
+            let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
+            window?.rootViewController = mainVC
+            
+        }
+        
         return true
     }
 
