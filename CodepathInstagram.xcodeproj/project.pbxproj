@@ -12,6 +12,9 @@
 		D06105DF1C898F9C0047C579 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105DE1C898F9C0047C579 /* PhotosViewController.swift */; };
 		D06105E11C898FED0047C579 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105E01C898FED0047C579 /* MediaCell.swift */; };
 		D06105E31C8990FD0047C579 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105E21C8990FD0047C579 /* PhotoDetailsViewController.swift */; };
+		D06105E51C89964B0047C579 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105E41C89964B0047C579 /* HomeViewController.swift */; };
+		D06105E71C8996640047C579 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105E61C8996640047C579 /* CameraViewController.swift */; };
+		D06105E91C89967E0047C579 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06105E81C89967E0047C579 /* ProfileViewController.swift */; };
 		D07955FC1C86A42300BCDD6A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07955FB1C86A42300BCDD6A /* Post.swift */; };
 		D0CC73C41C7DA88F00C8B8CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC73C31C7DA88F00C8B8CB /* LoginViewController.swift */; };
 		D0DEAB641C7DA2AE00C175A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DEAB631C7DA2AE00C175A0 /* AppDelegate.swift */; };
@@ -28,6 +31,9 @@
 		D06105DE1C898F9C0047C579 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		D06105E01C898FED0047C579 /* MediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		D06105E21C8990FD0047C579 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		D06105E41C89964B0047C579 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D06105E61C8996640047C579 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		D06105E81C89967E0047C579 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D07955FB1C86A42300BCDD6A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0CC73C31C7DA88F00C8B8CB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0DEAB601C7DA2AE00C175A0 /* CodepathInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodepathInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,9 @@
 				D06105DE1C898F9C0047C579 /* PhotosViewController.swift */,
 				D06105E01C898FED0047C579 /* MediaCell.swift */,
 				D06105E21C8990FD0047C579 /* PhotoDetailsViewController.swift */,
+				D06105E41C89964B0047C579 /* HomeViewController.swift */,
+				D06105E61C8996640047C579 /* CameraViewController.swift */,
+				D06105E81C89967E0047C579 /* ProfileViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -246,10 +255,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D06105E11C898FED0047C579 /* MediaCell.swift in Sources */,
+				D06105E71C8996640047C579 /* CameraViewController.swift in Sources */,
 				D06105DD1C898F6B0047C579 /* InfiniteScrollActivityView.swift in Sources */,
 				D0CC73C41C7DA88F00C8B8CB /* LoginViewController.swift in Sources */,
 				D0DEAB661C7DA2AE00C175A0 /* ViewController.swift in Sources */,
 				D06105E31C8990FD0047C579 /* PhotoDetailsViewController.swift in Sources */,
+				D06105E91C89967E0047C579 /* ProfileViewController.swift in Sources */,
+				D06105E51C89964B0047C579 /* HomeViewController.swift in Sources */,
 				D06105DF1C898F9C0047C579 /* PhotosViewController.swift in Sources */,
 				D0DEAB641C7DA2AE00C175A0 /* AppDelegate.swift in Sources */,
 				D07955FC1C86A42300BCDD6A /* Post.swift in Sources */,

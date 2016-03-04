@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        initializeTabBar()
+        
         return true
     }
 
@@ -61,6 +63,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func initializeTabBar() {
+        //first tab item
+//        let tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TwitterNavigationController") as! UINavigationController
+//        tweetsViewController.tabBarItem.title = "Timeline"
+//        tweetsViewController.tabBarItem.image = UIImage(named: "TimelineIcon")
+        
+        //first tab item
+        //second tab item
+        let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController")
+        homeViewController.tabBarItem.image = UIImage(named: "HomeIcon")
+        
+        //second tab item
+        let cameraViewController = storyboard.instantiateViewControllerWithIdentifier("CameraViewController")
+        cameraViewController.tabBarItem.image = UIImage(named: "CameraIcon")
+        
+        //second tab item
+        let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+        profileViewController.tabBarItem.image = UIImage(named: "PersonIcon")
+        
+        
+        
+        
+        let tabBarController = UITabBarController()
+        //tabBarController.viewControllers = [tweetsViewController, profileViewController]
+        tabBarController.viewControllers = [homeViewController, cameraViewController, profileViewController]
+        tabBarController.tabBar.barTintColor = UIColor.yellowColor()
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
 
