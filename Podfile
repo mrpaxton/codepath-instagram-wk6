@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'CodepathInstagram' do
     pod 'Parse'
-
+    pod 'AFNetworking', '~> 2.6'
+    pod 'MBProgressHUD'
 end
 
