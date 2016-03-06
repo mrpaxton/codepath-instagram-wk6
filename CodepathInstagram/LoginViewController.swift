@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
+    var currentUser: User?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,22 +21,8 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onSignUp(sender: AnyObject) {
-        let newUser = PFUser()
-        
-        newUser.username = usernameField.text
-        newUser.password = passwordField.text
-        newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) in
-            if success {
-                print("Yay, account created!")
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            } else {
-                print(error?.localizedDescription)
-                if error?.code == 202 {
-                    print("username already taken")
-                }
-            }
-        }
-        
+        currentUser = User()
+        currentUser!.signup(username: usernameField.text!, password: passwordField.text!)
     }
     
     @IBAction func onSignIn(sender: AnyObject) {

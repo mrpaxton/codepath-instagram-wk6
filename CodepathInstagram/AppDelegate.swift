@@ -29,8 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.applicationId = "CodepathInstagramSW"
                 configuration.clientKey = "codepathatccsfiscool"
                 configuration.server = "https://codepath-instagram-sw.herokuapp.com/parse"
+                User.registerSubclass() 
             })
         )
+        
+        PFUser.logOut()
         
         if PFUser.currentUser() != nil {
             let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
@@ -38,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        initializeTabBar()
+        //initializeTabBar()
         
         return true
     }

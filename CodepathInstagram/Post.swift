@@ -11,7 +11,15 @@ import UIKit
 import Parse
 
 
-class Post: NSObject {
+class Post: PFObject {
+    
+    var author: User!
+    var likesCount: Int!
+    var commentsCount: Int!
+    var caption: String?
+    var media: UIImage?
+    
+    
     
     //TODO: other methods
     func enlargeImage() {
@@ -26,17 +34,18 @@ class Post: NSObject {
     - parameter caption: Caption text input by the user
     - parameter completion: Block to be executed after save operation is complete
     */
-    class func getPFFileFromImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
+    class func postPFFileFromImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
         
-        let media = PFObject(className: "Post")
+        let post = PFObject(className: "Post")
         
-        media["media"] = getPFFileFromImage(image)
-        media["author"] = PFUser.currentUser()
-        media["caption"] = caption
-        media["likesCount"] = 0
-        media["commentsCount"] = 0
+        // Prep data to be saved to Parse: add relevant fields to the object
+        post["media"] = getPFFileFromImage(image) // PFFile column type
+        post["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
+        post["caption"] = caption
+        post["likesCount"] = 0
+        post["commentsCount"] = 0
         
-        media.saveInBackgroundWithBlock(completion)
+        post.saveInBackgroundWithBlock(completion)
     }
     
     
