@@ -8,7 +8,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -47,47 +47,17 @@
                     <connections>
                         <outlet property="passwordField" destination="RVD-Ep-5wd" id="5k3-4L-aMm"/>
                         <outlet property="usernameField" destination="Dnw-ac-VzX" id="OM3-Yr-7E3"/>
-                        <segue destination="aye-b1-ISR" kind="modal" identifier="loginSegue" id="06b-zh-XMV"/>
+                        <segue destination="fsV-eM-cpN" kind="modal" identifier="loginSegue" id="06b-zh-XMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="129" y="321"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7wn-3u-w0h">
-            <objects>
-                <viewController id="Wmv-Ci-sft" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yoa-vv-X2a"/>
-                        <viewControllerLayoutGuide type="bottom" id="sH6-ep-oH6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yjn-1Q-1M5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are logged in!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq2-3G-HOO">
-                                <rect key="frame" x="92" y="116" width="137" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAI-6S-Dmb">
-                                <rect key="frame" x="110" y="209" width="83" height="30"/>
-                                <state key="normal" title="Logout"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gh0-ah-DP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="360" y="-291"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="Q6A-sg-aFn">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="aye-b1-ISR" customClass="HomeViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="aye-b1-ISR" customClass="HomeViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ws-sB-QuA"/>
                         <viewControllerLayoutGuide type="bottom" id="2B9-KF-VYZ"/>
@@ -105,10 +75,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BTD-HX-2bb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6J-Hj-QwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="321"/>
+            <point key="canvasLocation" x="1067" y="321"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Nb7-sT-Iyv">
@@ -131,10 +102,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bkM-hK-bQw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPm-hg-FxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="324"/>
+            <point key="canvasLocation" x="1067" y="-336"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Sc8-LM-QVc">
@@ -157,10 +129,65 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vdD-vr-dxE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7v-7f-81a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="947"/>
+            <point key="canvasLocation" x="1067" y="955"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Vn-w3-Mi3">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fsV-eM-cpN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TgE-VS-kpd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aye-b1-ISR" kind="relationship" relationship="rootViewController" id="t6d-93-KyB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKA-8O-oDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0eQ-8z-Fdm">
+            <objects>
+                <navigationController storyboardIdentifier="CameraNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="J3b-nA-9Ci" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OfX-Lv-vVn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8yO-sh-kDX" kind="relationship" relationship="rootViewController" id="r5O-5n-lw4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fC-jb-EOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="-336"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ntb-PU-ohy">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="lMF-Ad-tzo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EPQ-CT-AG7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sKk-56-ltQ" kind="relationship" relationship="rootViewController" id="DDO-E0-zl3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoX-ua-TMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="955"/>
         </scene>
     </scenes>
 </document>

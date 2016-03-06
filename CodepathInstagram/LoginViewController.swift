@@ -10,6 +10,8 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -30,10 +32,15 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!, block: { (user: PFUser?, error: NSError?) in
             if let user = user {
                 print("\(user) : You are logged in")
-                self.performSegueWithIdentifier("loginSegue", sender: self)
+                //self.performSegueWithIdentifier("loginSegue", sender: self)
+                
+                //Get an instance of AppDelegate via UIApplication.sharedApplication().delegate
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+                //set its rootViewController to tabBarController(already setup in AppDelegate)
+                appDelegate.window?.rootViewController = appDelegate.tabBarController
             }
         })
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var storyboard = UIStoryboard(name: "Main", bundle: nil )
+    var tabBarController: UITabBarController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         //Parse.setApplicationId("CodepathInstagram", clientKey: "codepathatccsfiscool")
         
         // Initialize Parse
@@ -33,15 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        //TODO: comment this out when user persist across app restart done
         PFUser.logOut()
         
-        if PFUser.currentUser() != nil {
-            let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController")
-            window?.rootViewController = mainVC
-            
-        }
+        //setup and save the tabBarController as property
+        initializeTabBar()
         
-        //initializeTabBar()
+        //Bring the user to login if s/he is not in session
+        if PFUser.currentUser() != nil {
+            window?.rootViewController = tabBarController
+            
+        } else {
+            let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            window?.rootViewController = loginVC
+        }
         
         return true
     }
@@ -70,33 +75,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initializeTabBar() {
         //first tab item
-//        let tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TwitterNavigationController") as! UINavigationController
-//        tweetsViewController.tabBarItem.title = "Timeline"
-//        tweetsViewController.tabBarItem.image = UIImage(named: "TimelineIcon")
-        
-        //first tab item
-        //second tab item
-        let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController")
+        let homeNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
+        let homeViewController = homeNavigationViewController.topViewController as! HomeViewController
         homeViewController.tabBarItem.image = UIImage(named: "HomeIcon")
         
         //second tab item
-        let cameraViewController = storyboard.instantiateViewControllerWithIdentifier("CameraViewController")
+        let cameraNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("CameraNavigationController") as! UINavigationController
+        let cameraViewController = cameraNavigationViewController.topViewController as! CameraViewController
         cameraViewController.tabBarItem.image = UIImage(named: "CameraIcon")
         
-        //second tab item
-        let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+        //third tab item
+        let profileNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController") as! UINavigationController
+        let profileViewController = profileNavigationViewController.topViewController as! ProfileViewController
         profileViewController.tabBarItem.image = UIImage(named: "PersonIcon")
         
-        
-        
-        
         let tabBarController = UITabBarController()
-        //tabBarController.viewControllers = [tweetsViewController, profileViewController]
-        tabBarController.viewControllers = [homeViewController, cameraViewController, profileViewController]
+        tabBarController.viewControllers = [homeNavigationViewController, cameraNavigationViewController, profileNavigationViewController]
         tabBarController.tabBar.barTintColor = UIColor.yellowColor()
-        window?.rootViewController = tabBarController
+        self.tabBarController = tabBarController
         window?.makeKeyAndVisible()
     }
+    
+    
 
 
 }
