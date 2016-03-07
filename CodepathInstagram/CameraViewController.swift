@@ -8,12 +8,20 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
+
+
+protocol CameraViewControllerDelegate {
+    func didSendPhoto( cameraViewController: CameraViewController )
+}
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var captionField: UITextField!
+    
+    var delegate: CameraViewControllerDelegate!
     
     override func viewDidLoad() {
                     
@@ -25,6 +33,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,7 +51,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
             profileImageView.image = editedImage
@@ -51,9 +61,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
         
     @IBAction func onSubmit(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         Post.postPFFileFromImage(profileImageView.image, withCaption: captionField.text) { (success: Bool, error: NSError?) -> Void in
             if success {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 print("Posted to Parse")
+                
+                //self.delegate.didSendPhoto(self)
+                
                 self.profileImageView.image = nil
                 self.captionField.text = ""
                 

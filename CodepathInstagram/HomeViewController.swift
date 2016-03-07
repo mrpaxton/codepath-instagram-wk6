@@ -12,7 +12,7 @@ import MBProgressHUD
 import Parse
 import SwiftMoment
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, CameraViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var medias: [Post]!
@@ -33,6 +33,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func onRefresh(){
         delay(2, closure: {
             self.refreshControl.endRefreshing()
+        })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        delay(3, closure: {
+            Post.allPosts( { (posts) in
+                if let posts = posts {
+                    self.medias = posts
+                    self.tableView.reloadData()
+                    
+                }
+            } , failure: nil )
         })
     }
     
@@ -182,6 +194,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let vc = segue.destinationViewController as! PhotoDetailsViewController
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
         vc.photoURL = NSURL( string: medias[indexPath!.section].valueForKeyPath("images.standard_resolution.url") as! String)//
+    }
+    
+    func didSendPhoto(cameraViewController: CameraViewController) {
+        self.tableView.reloadData()
     }
     
     func durationString(createdAt: NSDate?) -> String {
