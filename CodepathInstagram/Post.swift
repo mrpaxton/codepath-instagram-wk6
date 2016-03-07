@@ -11,21 +11,19 @@ import UIKit
 import Parse
 
 
-class Post: PFObject {
+class Post: PFObject, PFSubclassing {
     
+    var id: Int?
     var author: User!
     var likesCount: Int!
     var commentsCount: Int!
     var caption: String?
-    var media: UIImage?
+    var media: PFFile?    
     
-    
-    
-    //TODO: other methods
-    func enlargeImage() {
-        
+    //Conform to PFSubclassing
+    class func parseClassName() -> String {
+        return "Post"
     }
-    
     
     /**
     Method to post user media to Parse by uploading image file
@@ -48,6 +46,40 @@ class Post: PFObject {
         post.saveInBackgroundWithBlock(completion)
     }
     
+    class func allPosts( success: (posts: [Post]?) -> (), failure: ((error: NSError?) -> ())? )  {
+        
+        let query = PFQuery(className: "Post")
+        query.whereKey("likesCount", greaterThanOrEqualTo: 0 )
+        query.limit = 20
+        
+        //fetch data async and execute success or failure functions
+        query.findObjectsInBackgroundWithBlock { ( posts: [PFObject]?, error: NSError? ) -> Void in
+            if let posts = posts {
+                let postArray = posts.map{ $0 as! Post }
+                success(posts: postArray)
+            } else {
+                print(error?.localizedDescription)
+                if let failure = failure {
+                    failure(error: error)
+                }
+            }
+        }
+    }
+    
+    class func getPostWithId( id: Int, success: (post: Post?) -> () , failure: ((error: NSError?) -> ())? ) {
+        
+        let query = PFQuery(className: "Post")
+        let idString = String(id)
+        query.getObjectInBackgroundWithId(idString) { (post: PFObject?, error: NSError?) -> Void in
+            if let post = post {
+                success(post: post as? Post)
+            } else {
+                if let failure = failure {
+                    failure(error: error)
+                }
+            }
+        }
+    }
     
     class func getPFFileFromImage(image: UIImage?) -> PFFile? {
         

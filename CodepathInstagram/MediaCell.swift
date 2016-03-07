@@ -11,6 +11,9 @@ import UIKit
 class MediaCell: UITableViewCell {
     
     @IBOutlet weak var feedImageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

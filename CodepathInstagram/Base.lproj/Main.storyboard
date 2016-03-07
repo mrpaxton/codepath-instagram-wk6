@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="129" y="321"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Imstagram Home-->
         <scene sceneID="Q6A-sg-aFn">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="aye-b1-ISR" customClass="HomeViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,22 +66,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HomeViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-f9-FLt">
-                                <rect key="frame" x="81" y="171" width="158" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="308" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ymJ-0A-5DV">
+                                <rect key="frame" x="0.0" y="64" width="320" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaCell" id="5zq-Fg-GEA" customClass="MediaCell" customModule="CodepathInstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="308"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5zq-Fg-GEA" id="xUN-gu-HI2">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="307.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yG0-8x-I6Q">
+                                                    <rect key="frame" x="15" y="8" width="289" height="264"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption is here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02h-Hd-opI">
+                                                    <rect key="frame" x="15" y="275" width="289" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="02h-Hd-opI" id="mGa-Tl-FCr"/>
+                                            <outlet property="feedImageView" destination="yG0-8x-I6Q" id="pFr-iy-NIL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BTD-HX-2bb"/>
+                    <navigationItem key="navigationItem" title="Imstagram Home" id="BTD-HX-2bb">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0x9-by-OFq"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ymJ-0A-5DV" id="Ebk-x5-iDp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6J-Hj-QwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1067" y="321"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Photo Details View Controller-->
+        <scene sceneID="70Q-tB-kxo">
+            <objects>
+                <viewController id="P1R-XJ-h2j" customClass="PhotoDetailsViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t3S-iy-Cd0"/>
+                        <viewControllerLayoutGuide type="bottom" id="HMl-8O-lLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VN9-RB-pit">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kbs-K2-7ig">
+                                <rect key="frame" x="39" y="131" width="243" height="305"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="W7N-Zx-qi4"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="kbs-K2-7ig" id="LF6-Uc-naM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xQ-zV-CHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="321"/>
+        </scene>
+        <!--Camera View-->
         <scene sceneID="Nb7-sT-Iyv">
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" id="8yO-sh-kDX" customClass="CameraViewController" customModule="CodepathInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,16 +149,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CameraViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUn-o6-GcL">
-                                <rect key="frame" x="100" y="186" width="172" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1uU-ff-cF3">
+                                <rect key="frame" x="20" y="168" width="286" height="324"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-MB-LBl">
+                                <rect key="frame" x="32" y="113" width="256" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjc-Hy-mjk">
+                                <rect key="frame" x="20" y="84" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbo-fp-jxT">
+                                <rect key="frame" x="169" y="72" width="145" height="30"/>
+                                <state key="normal" title="Post to Imstagram"/>
+                                <connections>
+                                    <action selector="onSubmit:" destination="8yO-sh-kDX" eventType="touchUpInside" id="OtX-wZ-YC1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bkM-hK-bQw"/>
+                    <navigationItem key="navigationItem" title="Camera View" id="bkM-hK-bQw">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bk0-Gp-xRA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionField" destination="cLi-MB-LBl" id="h1m-yE-deQ"/>
+                        <outlet property="profileImageView" destination="1uU-ff-cF3" id="roZ-Fe-LWn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPm-hg-FxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,7 +206,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vdD-vr-dxE"/>
+                    <navigationItem key="navigationItem" id="vdD-vr-dxE">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="YyG-ED-PJd"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7v-7f-81a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,4 +269,7 @@
             <point key="canvasLocation" x="535" y="955"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CameraIcon" width="24" height="24"/>
+    </resources>
 </document>

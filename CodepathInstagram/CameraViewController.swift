@@ -16,8 +16,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var captionField: UITextField!
     
     override func viewDidLoad() {
+                    
         super.viewDidLoad()
-        var imageView = profileImageView
+        let imageView = profileImageView
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
         imageView.userInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
@@ -48,18 +49,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             })
     }
     
-    func resize(image: UIImage, newSize: CGSize) -> UIImage {
-        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
-        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        resizeImageView.image = image
         
-        UIGraphicsBeginImageContext(resizeImageView.frame.size)
-        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
     @IBAction func onSubmit(sender: AnyObject) {
         Post.postPFFileFromImage(profileImageView.image, withCaption: captionField.text) { (success: Bool, error: NSError?) -> Void in
             if success {

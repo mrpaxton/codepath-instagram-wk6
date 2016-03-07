@@ -11,17 +11,9 @@ import Parse
 
 
 class User: PFUser {
-
     
     var post: Post?
-    
     var profilePhoto: UIImage?
-    
-//    override init() {
-//        super.init()
-//    }
-    
-    
     
     func signup(username username: String, password: String) {
         self.username = username
@@ -40,13 +32,14 @@ class User: PFUser {
         
     }
     
-    func processLogin() {
+    func login() {
         
     }
     
     func signout() {
         PFUser.logOut()
-        
+        //go back to the login page
+        //let loginViewController = UIStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
     }
     
     func forgetPassword() {
