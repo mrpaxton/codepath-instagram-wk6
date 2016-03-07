@@ -29,9 +29,24 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftMoment.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0DE1DD72AA808AE8368E8BC4C2D7C1E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B3D385C0CD5E1BC313CE10903AF9958</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4878C70B21CA37D7CB8A476BF986741B</key>
 		<dict>
 			<key>primary</key>
@@ -48,11 +63,6 @@
 			<true/>
 		</dict>
 		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD1483EAD88A5248FE30CCBD9D4E9605</key>
 		<dict>
 			<key>primary</key>
 			<true/>

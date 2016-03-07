@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 import Parse
-import Moment
+import SwiftMoment
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
@@ -115,15 +115,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let profileView = UIView(frame: CGRect(x: 0, y: -5, width: 320, height: 50))
         let profileLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 320, height: 50))
         
-        profileLabel.text = medias[section].valueForKeyPath("user.username") as? String//
+        let media = medias[section]
+        var author = media["author"] as? User
+        let timeAgo = media.createdAt
+        let momentAgo = durationString(timeAgo)
+        
+        do {
+            try author!.fetchIfNeeded()
+            profileLabel.text = "\(author!.username!), \(momentAgo)"
+        } catch _ {
+            author = nil
+        }
+        
         
         let profileImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
         profileView.clipsToBounds = true
         profileView.layer.cornerRadius = 5;
         profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).CGColor
         
-        // Use the section number to get the right URL: medias[section]
-        //let imageURL = NSURL(string: medias[section].valueForKeyPath("user.profile_picture") as! String )//
         profileImageView.image =
             UIImage(named: "PersonIcon")//
         

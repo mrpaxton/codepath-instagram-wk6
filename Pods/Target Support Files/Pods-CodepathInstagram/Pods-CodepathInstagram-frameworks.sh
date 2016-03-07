@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CodepathInstagram/Bolts.framework"
   install_framework "Pods-CodepathInstagram/MBProgressHUD.framework"
   install_framework "Pods-CodepathInstagram/Parse.framework"
+  install_framework "Pods-CodepathInstagram/SwiftMoment.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CodepathInstagram/AFNetworking.framework"
   install_framework "Pods-CodepathInstagram/Bolts.framework"
   install_framework "Pods-CodepathInstagram/MBProgressHUD.framework"
   install_framework "Pods-CodepathInstagram/Parse.framework"
+  install_framework "Pods-CodepathInstagram/SwiftMoment.framework"
 fi

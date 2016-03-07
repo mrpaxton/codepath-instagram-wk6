@@ -50,7 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = loginVC
         }
         
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout",  name: userDidLogoutNotification, object: nil)
+        
         return true
+    }
+    
+    func userDidLogout() {
+        //  print("Notification received")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {

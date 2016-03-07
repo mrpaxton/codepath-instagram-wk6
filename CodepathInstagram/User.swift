@@ -13,7 +13,7 @@ import Parse
 class User: PFUser {
     
     var post: Post?
-    var profilePhoto: UIImage?
+    var profilePhoto: UIImage?    
     
     func signup(username username: String, password: String) {
         self.username = username
